@@ -1,4 +1,4 @@
-const { Socket } = require('dgram');
+// const { Socket } = require('dgram');
 const express = require('express');
 const app = express();
 const path = require('path');
@@ -21,7 +21,6 @@ http.listen(PORT,()=>{
 
 app.get('/',(req,res)=>{
     res.sendFile(__dirname  + '/views/index.html');
-    // 
 })
 
 const io = require('socket.io')(http)
