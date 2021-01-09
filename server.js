@@ -17,6 +17,7 @@ app.set('views', VIEWS_PATH);
 
 app.get('/',(req,res)=>{
     console.log("app.get - res sendFile - before");
+    res.writeHead(200, {"Content-Type": "text/html"});
     res.sendFile(__dirname  + '/views/index.html');
 })
 
