@@ -2,6 +2,7 @@
 const express = require('express');
 const app = express();
 const path = require('path');
+const hbs = require('hbs')
 
 const http = require('http').createServer(app);
 
@@ -12,13 +13,15 @@ const VIEWS_PATH = path.join(__dirname + path.sep + 'views');
 
 app.use(express.static(PUBLIC_PATH));
 app.set('views', VIEWS_PATH);
+app.set('view engine', 'hbs');   
 
 
 
 app.get('/',(req,res)=>{
     console.log("app.get - res sendFile - before");
-    res.writeHead(200, {"Content-Type": "text/html"});
-    res.sendFile(__dirname  + '/views/index.html');
+    // res.writeHead(200, {"Content-Type": "text/html"});
+    // res.sendFile(__dirname  + '/views/index.html');
+    res.render('index2');
 })
 
 const io = require('socket.io')(http)
