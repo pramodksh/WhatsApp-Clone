@@ -21,6 +21,7 @@ http.listen(PORT,()=>{
 
 app.get('/',(req,res)=>{
     res.sendFile(__dirname  + '/views/index.html');
+    // 
 })
 
 const io = require('socket.io')(http)
