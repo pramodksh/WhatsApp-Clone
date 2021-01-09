@@ -15,11 +15,8 @@ app.set('views', VIEWS_PATH);
 
 
 
-http.listen(PORT,()=>{
-    console.log(`Listening at port ${PORT}`);
-})
-
 app.get('/',(req,res)=>{
+    console.log("app.get - res sendFile - before");
     res.sendFile(__dirname  + '/views/index.html');
 })
 
@@ -30,4 +27,8 @@ io.on('connection',(socket)=>{
         //  console.log(msg)
         socket.broadcast.emit('message',msg)
      })
+})
+
+http.listen(PORT,()=>{
+    console.log(`Listening at port ${PORT}`);
 })
